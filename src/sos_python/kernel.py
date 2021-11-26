@@ -12,7 +12,10 @@ from sos.eval import interpolate
 # use any python3-specific syntax (e.g. f-string)
 #
 __init_statement__ = r'''
-from collections import Sized, KeysView, Sequence
+import warnings
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore", category=DeprecationWarning)
+    from collections import Sized, KeysView, Sequence
 from types import ModuleType
 import pydoc
 import pickle
